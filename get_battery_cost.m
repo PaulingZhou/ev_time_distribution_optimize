@@ -20,15 +20,15 @@ for i = 25 : 24*2
     end
     rdtBatDist(i) = rdNum(i) + charge_time_dist_hour(i);
 end
-figure(2);
+% figure(2);
 rdtBatDist(1:24,:)=[];
 rdNum(1:24,:)=[];
 charge_time_dist_hour(1:24,:)=[];
-plot(max(rdtBatDist)-rdtBatDist,'g');
-hold on;
-grid on;
-plot(rdNum,'b');
-plot(charge_time_dist_hour,'r');
+% plot(max(rdtBatDist)-rdtBatDist,'g');
+% hold on;
+% grid on;
+% plot(rdNum,'b');
+% plot(charge_time_dist_hour,'r');
 battery_cost = 10*(max(rdtBatDist)+N);
 end
 

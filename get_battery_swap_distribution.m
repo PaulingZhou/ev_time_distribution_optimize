@@ -1,4 +1,4 @@
-function [ swap_info_day2 ] = getSwapDemandDistribution( go_off_simulate_Day1,go_off_simulate_Day2,subsidy )
+function [ swap_info_day1,swap_info_day2 ] = get_battery_swap_distribution( go_off_simulate_Day1,go_off_simulate_Day2,subsidy )
 %   getSwapDemandDistribution 计算换电需求密度,Monte-Carlo method
 %   go_off_simulate_Day1 第一天车辆出行开始时间与持续时间
 %   go_off_simulate_Day2 第二天车辆出行开始时间与持续时间
@@ -12,8 +12,8 @@ N = length(go_off_simulate_Day1);
 soc_store = unifrnd (0.35,0.55,N,1);
 soc_origin = unifrnd(soc_store,1);
 swap_distribution_possibility = 1+0.2*subsidy;
-[soc_realtime_day1, swap_info_day1] = simulate_go_off(N, go_off_simulate_Day1, soc_store, soc_origin, swap_distribution_possibility);
-[soc_realtime_day2, swap_info_day2] = simulate_go_off(N, go_off_simulate_Day2, soc_store, soc_realtime_day1(:,26*60), swap_distribution_possibility);
+[soc_origin_day2, swap_info_day1] = simulate_go_off(N, go_off_simulate_Day1, soc_store, soc_origin, swap_distribution_possibility);
+[~, swap_info_day2] = simulate_go_off(N, go_off_simulate_Day2, soc_store, soc_origin_day2, swap_distribution_possibility);
 % for i = 24*60+1:size(soc_realtime_day1,2)
 %     swap_info_day1{i-24*60}
 %     swap_info_day2{i}
