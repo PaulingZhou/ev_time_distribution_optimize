@@ -1,5 +1,5 @@
 function [ charge_start_dist, charge_time_dist, charge_end_dist ] = get_charge_dist( demand_time_dist )
-%get_charge_dist 获取充电分布
+%get_charge_dist 获取第二天充电分布
 %   demand_time_dist 24*1 cell 需求分布
 %   charge_time_dist 1440*1 vector 充电分布
 %   P 充电功率5kW
@@ -24,6 +24,8 @@ for i = 1:48
         end
     end
 end
-
+charge_start_dist = charge_start_dist(25:48,:);
+charge_time_dist = charge_time_dist(24*60+1:24*60*2,:);
+charge_end_dist = charge_end_dist(25:48,:);
 end
 

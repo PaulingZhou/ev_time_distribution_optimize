@@ -14,11 +14,6 @@ soc_origin = unifrnd(soc_store,1);
 swap_distribution_possibility = 1+0.2*subsidy;
 [soc_origin_day2, swap_info_day1] = simulate_go_off(N, go_off_simulate_Day1, soc_store, soc_origin, swap_distribution_possibility);
 [~, swap_info_day2] = simulate_go_off(N, go_off_simulate_Day2, soc_store, soc_origin_day2, swap_distribution_possibility);
-% for i = 24*60+1:size(soc_realtime_day1,2)
-%     swap_info_day1{i-24*60}
-%     swap_info_day2{i}
-%     swap_info_day2{i-24*60} = swap_info_day1{i-24*60}+swap_info_day2{i};
-% end
 for i = 1:N
     swap_info_day1_percar = swap_info_day1{i};
     for j = 1:size(swap_info_day1_percar,1)
