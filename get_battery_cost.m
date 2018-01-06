@@ -31,8 +31,11 @@ end
 % hold on;
 % plot(swap_time_dist_hour);
 plot(unFullBat(3:26));
-hold on
+hold on;
 plot(fullBat(3:26),'g');
+legend('Î´³äÂúµç³Ø','ÒÑ³äÂúµç³Ø');
+grid on;
+hold off;
 battery_cost = 0.55*(fullBat(26)+unFullBat(26));
 end
 
