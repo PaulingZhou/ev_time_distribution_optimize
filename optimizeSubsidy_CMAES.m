@@ -17,16 +17,15 @@ close all;
 % load('timeDistribution.mat');                                               % get chPlan & swNum
 
 %% Problem Settings
-% FitnessFunction = @(subsidy, u)getSumPrice(x, subsidy, swNum);
 
-CostFunction = @(subsidy)get_total_cost(subsidy);   % Cost Function
+CostFunction = @(subsidy)get_cost_for_optimize(subsidy);   % Cost Function
 
-nVar=24;                % Number of Unknown (Decision) Variables
+nVar=8;                % Number of Unknown (Decision) Variables
 
 VarSize=[1 nVar];       % Decision Variables Matrix Size
 
-VarMin= 0;             % Lower Bound of Decision Variables
-VarMax= 10;             % Upper Bound of Decision Variables
+VarMin= zeros(nVar,1);             % Lower Bound of Decision Variables
+VarMax= 1.8*ones(nVar,1);             % Upper Bound of Decision Variables
 
 %% CMA-ES Settings
 
@@ -151,7 +150,7 @@ for g=1:MaxIt
         E=max(E,0);
         C{g+1}=V*E/V;
     end
-    
+
 end
 
 %% Display Results

@@ -1,7 +1,7 @@
 clc;
 clear;
 load('timeDistribution.mat');
-N = 6330;
+N = 1000;
 expectedCountDay1=unifrnd (3,3.32);   %~U[3,3.32]
 expectedCountDay2=unifrnd (3,3.32);   %~U[3,3.32]
 go_off_perCar_Day1=round(normrnd(expectedCountDay1, 1.0, N, 1));    %~N(expectedCount,1.0)

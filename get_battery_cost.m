@@ -30,12 +30,12 @@ end
 % plot(charge_end_dist);
 % hold on;
 % plot(swap_time_dist_hour);
-plot(unFullBat(3:26));
-hold on;
-plot(fullBat(3:26),'g');
-legend('未充满电池','已充满电池');
-grid on;
-hold off;
+% plot(unFullBat(3:26));
+% hold on;
+% plot(fullBat(3:26),'g');
+% legend('未充满电池','已充满电池');
+% grid on;
+% hold off;
 battery_cost = 0.55*(fullBat(26)+unFullBat(26));
 end
 

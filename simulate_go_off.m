@@ -21,9 +21,6 @@ swap_distribution_possibility_all = [swap_distribution_possibility_all;swap_dist
 total_consume_distance = 200;
 for carIndex = 1:N
     soc_realtime_perhour = ones(1,26*60);
-    if ~mod(carIndex,100)
-        carIndex
-    end
     soc_consume_dist = zeros(1, 26*60);
     go_off_info_per_car = go_off_simulate_Day{carIndex}';
     if ~isempty(go_off_info_per_car)
@@ -53,21 +50,7 @@ for carIndex = 1:N
                         swap_distribution_possibility(driving_time) = swap_distribution_possibility_all(i);
                     end
                 end             
-%                 time = ceil(unifrnd(0.000001, driving_time));
                 time = randsample(swap_distribution_time, 1, 'true', swap_distribution_possibility);
-%                 swapping_details(1) = time;
-%                 driving_time = 0;
-%                 for i = swapping_time_dist(1):swapping_time_dist(2)
-%                     if soc_consume_dist(i) ~= 0
-%                         driving_time = driving_time+1;
-%                     end
-%                     if swapping_details(1) == driving_time
-%                         swapping_details(1) = i;
-%                         swapping_details(2) = soc_realtime(carIndex,swapping_details(1));
-%                         swapping_time_sim = [swapping_time_sim;swapping_details];
-%                         break
-%                     end
-%                 end
                 soc_realtime_perhour(1,time)=1.0;
                 iter_time = time;
                 swapping_times = swapping_times+1;
@@ -93,14 +76,6 @@ for carIndex = 1:N
             iter_time = iter_time+1;
         end
     end
-%     for time = swapping_time_sim
-%        if time(1) == 0
-%            swapping_time_sim = [];
-%        end
-%     end
-    swap_info{carIndex} = swapping_time_sim;
-    
-    
+    swap_info{carIndex} = swapping_time_sim;    
 end
-% new_soc_origin = soc_realtime(:,26*60);
 end
