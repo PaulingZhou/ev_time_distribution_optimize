@@ -17,7 +17,7 @@ load('go_off_simulate.mat');
 operate_cost = get_operate_cost(swap_time_dist);
 demand_time_dist_sum = zeros(24*60,1);
 for i = 1:24*60
-    if ~size(demand_time_dist_sum(i),1)
+    if size(demand_time_dist{i},1)
         demand_time_dist_sum(i) = mean(demand_time_dist{i})* swap_time_dist(i);
     end
 end

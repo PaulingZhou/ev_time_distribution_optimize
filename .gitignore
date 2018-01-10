@@ -4,3 +4,6 @@
 
 #matlab temporal files
 *.asv
+
+#dat files
+*.dat
