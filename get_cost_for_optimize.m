@@ -4,14 +4,15 @@ function [ total_cost ] = get_cost_for_optimize( subsidy )
 % fprintf('new calculate instance\n');
 % load('go_off_simulate.mat');
 load('swap_info_6330.mat');
-% if size(subsidy,1)==1
-%     subsidy = subsidy';
-% end
-% subsidy = abs(subsidy);
-% subsidy_tenmin = zeros(144,1);
-% subsidy_tenmin(80:94) = subsidy;
-% subsidy_minute = get_subsidy_minute(subsidy_tenmin,10);
-subsidy_minute = zeros(1440,1);
+% subsidy = [0.0118728359156564;0.0130365974221455;0.0125850351236082;0.0134879886399743;0.0267050253827609;0.0634923123281603;0.140361556206378;0.268088696182059;0.177855557818379;0.0291217034067656;0;0;0.0439489148123318;0.382525859411672;0.332251560837528];
+if size(subsidy,1)==1
+    subsidy = subsidy';
+end
+subsidy = abs(subsidy);
+subsidy_tenmin = zeros(144,1);
+subsidy_tenmin(80:94) = subsidy;
+subsidy_minute = get_subsidy_minute(subsidy_tenmin,10);
+% subsidy_minute = zeros(1440,1);
 
 swap_distribution_possibility = get_demand_ratio_via_subsidy(subsidy_minute);
 

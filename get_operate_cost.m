@@ -7,7 +7,7 @@ for i = 2:1431
     current_swap_equip = current_swap_equip-swap_time_dist(i)+swap_time_dist(i+9);
     max_swap_equip = max(max_swap_equip,current_swap_equip);
 end
-swap_equip_cost = (0.97)*max_swap_equip;
+swap_equip_cost = (200.97)*max_swap_equip;
 operate_cost = swap_equip_cost;
 end
 
