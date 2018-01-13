@@ -1,5 +1,5 @@
 # matrix files
-*.mat
+
 *.fig
 
 #matlab temporal files
@@ -7,3 +7,7 @@
 
 #dat files
 *.dat
+X.mat
+variablescmaes.mat
+timeDistribution.mat
+swap_info_1000.mat
